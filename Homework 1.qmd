@@ -47,7 +47,7 @@ library(ggplot2)
 
 Here, we loaded the **palmerpenguins library** since it has the dataset of penguin species from the Palmer Archipelago. Then we loaded the **dplyr library** for data manipulation and transformation. After that we loaded the **ggplot2 library** for data visualization.
 
-Now, we will create a barplot to visualize the average bill length for each penguin species.
+Now, we will create a barplot to visualize the average bill length for each penguin species. For that, we will **first clean the dataset** by **removing entries with missing values** for **bill length and species**. Then, we will **calculate the** **average bill length** for each penguin species, and then we will visualize these averages using a bar plot to clearly compare bill lengths across different species.
 
 ```{r}
 #| echo: false
