@@ -7,7 +7,7 @@ editor: visual
 
 # Penguins Dataset
 
-The **penguins dataset** contains data on **344 adult penguins** across **three species** found on **three islands** in the Palmer Archipelago, Antarctica. The data includes information on their **physical characteristics** (bill length, bill depth, flipper length, and body mass), **sex**, and **year**.
+The **penguins dataset** contains data on **344 adult penguins** across **three species** (Adelie, Chinstrap, and Gentoo) found on **three islands** (Biscoe, Dream, and Torgersen) in the Palmer Archipelago, Antarctica. The data includes information on their **physical characteristics** (bill length, bill depth, flipper length, and body mass), **sex** (female or male), and **year** (2007, 2008, or 2009).
 
 This dataset is a cleaned subset of the more detailed penguins_raw dataset, which also includes nesting behavior and isotope data.
 
@@ -19,9 +19,9 @@ head(penguins)
 
 The dataset includes **8 variables**:
 
--   [***species (factor)***]{.underline}: Penguin species
+-   [***species (factor)***]{.underline}: Penguin species (Adelie, Chinstrap, and Gentoo)
 
--   [***island (factor)***]{.underline}: Island where the penguin was observed
+-   [***island (factor)***]{.underline}: Island where the penguin was observed (Biscoe, Dream, and Torgersen)
 
 -   [***bill_len (numeric)***]{.underline}: Bill length in millimeters
 
@@ -31,9 +31,9 @@ The dataset includes **8 variables**:
 
 -   [***body_mass (integer)***]{.underline}: Body mass in grams
 
--   [***sex (facotr)***]{.underline}: Sex of the penguin
+-   [***sex (facotr)***]{.underline}: Sex of the penguin (female or male)
 
--   [***year (integer)***]{.underline}: Year the observation was recorded
+-   [***year (integer)***]{.underline}: Year the observation was recorded (2007, 2008, or 2009)
 
 ```{r}
 #| message: false
