@@ -1,0 +1,78 @@
+---
+title: "Homework 1"
+author: "Harsh Mehta (Student Number: 24208383)"
+format: pdf
+editor: visual
+---
+
+# Penguins Dataset
+
+The penguins dataset contains data on 344 adult penguins across three species found on three islands in the Palmer Archipelago, Antarctica. The data includes information on their physical characteristics (bill length, bill depth, flipper length, and body mass), sex, and year.
+
+This dataset is a cleaned subset of the more detailed penguins_raw dataset, which also includes nesting behavior and isotope data.
+
+```{r}
+#| echo: false
+# Printing the first 6 lines of the dataset
+head(penguins)
+```
+
+The dataset includes 8 variables:
+
+-   species (factor): Penguin species
+
+-   island (factor): Island where the penguin was observed
+
+-   bill_len (numeric): Bill length in millimeters
+
+-   bill_depth (numeric): Bill depth in millimeters
+
+-   flipper_len (integer): Flipper length in millimeters
+
+-   body_mass (integer): Body mass in grams
+
+-   sex (facotr): Sex of the penguin
+
+-   year (integer): Year the observation was recorded
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+# Loading the necessary libraries
+library(palmerpenguins)
+library(dplyr)
+library(ggplot2)
+```
+
+Here, we loaded the palmerpenguins library since it has the dataset of penguin species from the Palmer Archipelago. Then we loaded the dplyr library for data manipulation and transformation. After that we loaded the ggplot2 library for data visualization.
+
+Now, we will create a barplot to visualize the average bill length for each penguin species.
+
+```{r}
+#| echo: false
+#| fig-align: center
+# Removing the rows with missing values
+penguins_clean = penguins |> filter(!is.na(bill_length_mm), !is.na(species))
+
+# Calculating the average bill length for each species
+avg_bill = penguins_clean |> group_by(species) |> 
+  summarise(avg_bill_length = mean(bill_length_mm))
+
+# Creating a simple barplot
+ggplot(avg_bill, aes(x = species, y = avg_bill_length, fill = species)) +
+  geom_col() + 
+  labs(title = "Average Bill Length for Each Penguin Species", 
+       x = "Penguin Species", y = "Average Bill Length (mm)") + 
+  theme(plot.title = element_text(hjust = 0.5), legend.position = "none")
+```
+
+The following can be interpreted from the above plot:
+
+-   Chinstrap penguins have the longest average bill length, measuring just under 50 mm.
+
+-   Gentoo penguins follow closely, with an average slightly lower than Chinstrap.
+
+-   Adelie penguins have the shortest average bill length, at around 39 mm.
+
+This suggests that bill length varies significantly between species, potentially reflecting differences in feeding habits, ecological adaptation, or evolutionary traits.
